@@ -5,7 +5,7 @@
 #include <sys/stat.h>
 #include <time.h>
 
-#define MAX 1024
+#define MAXIMUM 1024
 
 void operate(DIR *dir);
 void options(DIR *dir,char option[],char path[]);
@@ -102,7 +102,7 @@ void options(DIR *dir,char option[],char path[]){
 		char date [100];
 		char type[20];
 		
-		char filepath[MAX];
+		char filepath[MAXIMUM];
 		
 		
 		

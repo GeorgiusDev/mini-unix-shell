@@ -12,13 +12,13 @@ int main(){
 	
 	char *line=NULL;
 	size_t len = 0;
-	int n,i;
+	int n;
 	
-	char cwd[PATH_MAX];
+	char cwd[MAXIMUM];
 	
-	char bin[PATH_MAX];
+	char bin[MAXIMUM];
 	
-	if(getcwd(bin,PATH_MAX)==NULL){
+	if(getcwd(bin,MAXIMUM)==NULL){
 		perror("Directory");
 		exit(1);
 	}
@@ -55,6 +55,14 @@ int main(){
 		else if(strcmp(tokens[0],"cd") == 0) cd(n,tokens);
 		
 		else if(strcmp(tokens[0],"echo") == 0) echo(n,tokens);
+		
+		else if(strcmp(tokens[0],"mkdir") == 0) mdir(n,tokens);
+		
+		else if(strcmp(tokens[0],"rmdir") == 0) rdir(n,tokens);
+		
+		else if(strcmp(tokens[0],"touch")==0) touch(n,tokens);
+		
+		else if (strcmp(tokens[0],"rm")==0) rm(n,tokens);
 		
 		else if(strcmp(tokens[0],"break") == 0 || strcmp(tokens[0],"close") == 0 || strcmp(tokens[0],"exit")==0) break;
 		

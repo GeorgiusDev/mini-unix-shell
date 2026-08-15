@@ -1,5 +1,6 @@
-# Mini Unix Shell clone
+# Mini Unix Shell clone v0.2
 A simple unix shell clone written in C, with basic commands!
+Read version patches in patches.md file
 
 # Features
 - Command tokenization
@@ -26,7 +27,7 @@ External:
 - Make
 
 # Building
-- git clone https://github.com/GeorgiusDev/mini-unix-shell/
+- git clone https://github.com/GeorgiusDev/mini-unix-shell
 - cd mini-unix-shell
 - make
 - ./shell
