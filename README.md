@@ -12,7 +12,11 @@ Built in:
 - pwd -> shows current directory
 - cd DIRECTORY -> change directory to destination
 - exit, break or close -> exit the shell
-- echo -> echo
+- echo TEXT -> TEXT
+- mkdir NAME -> creates the directory with name "NAME"
+- rmdir NAME -> deletes the directory with name "NAME"
+- touch FILE -> creates the file with name "FILE"
+- rm FILE -> deletes the file with name "FILE"
 External:
 - ls:
   - ls
