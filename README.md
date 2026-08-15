@@ -17,6 +17,7 @@ Built in:
 - rmdir NAME -> deletes the directory with name "NAME"
 - touch FILE -> creates the file with name "FILE"
 - rm FILE -> deletes the file with name "FILE"
+
 External:
 - ls:
   - ls
@@ -25,6 +26,7 @@ External:
   - ls -a DIRECTORY
   - ls -l
   - ls -l DIRECTORY
+  
 #Requirements
 - Linux / Unix-like operating system
 - GCC
@@ -35,6 +37,7 @@ External:
 - cd mini-unix-shell
 - make
 - ./shell
+
 For cleaning compiled files: make clean
 
 # License
