@@ -1,13 +1,16 @@
 all: shell bin/ls
 
-shell: main.o commands.o
-	gcc -o shell main.o commands.o
+shell: main.o commands.o shell.o
+	gcc -o shell main.o commands.o shell.o
 	
 main.o: main.c
 	gcc -c main.c
 
 commands.o: commands.c commands.h
 	gcc -c commands.c
+	
+shell.o: shell.c
+	gcc -c shell.c
 	
 bin/ls: bin/ls.o
 	gcc -o bin/ls bin/ls.o

@@ -4,6 +4,7 @@
 #include <unistd.h>
 
 #include "commands.h"
+#include "shell.h"
 
 
 int tokenise(char *line, char***tokens,int *n);
@@ -13,8 +14,6 @@ int main(){
 	char *line=NULL;
 	size_t len = 0;
 	int n;
-	
-	char cwd[MAXIMUM];
 	
 	char bin[MAXIMUM];
 	
@@ -30,7 +29,9 @@ int main(){
 	while(1){
 		printf("$: ");
 		if(getline(&line, &len, stdin) == -1){
-			perror("Input");
+			if(feof(stdin)) break;
+			
+			perror("getline");
 			return 1;
 		}
 		line[strcspn(line,"\n")] = '\0';
@@ -48,9 +49,13 @@ int main(){
 		
 		}
 		
-		/*BUILT IN*/
+		if(strcmp(tokens[0],"exit")==0) break;
 		
-		if(strcmp(tokens[0],"cwd") == 0 || strcmp(tokens[0],"pwd") == 0) printf("Current path: %s\n",pwd(cwd));
+		cmdHandler(n,tokens,bin);
+		
+		/*OLD CODE, IN CASE OTHER FUNCTIONS EVER BREAK!*
+		
+		if(strcmp(tokens[0],"cwd") == 0 || strcmp(tokens[0],"pwd") == 0) handle_pwd(n,tokens);
 		
 		else if(strcmp(tokens[0],"cd") == 0) cd(n,tokens);
 		
@@ -66,14 +71,15 @@ int main(){
 		
 		else if(strcmp(tokens[0],"break") == 0 || strcmp(tokens[0],"close") == 0 || strcmp(tokens[0],"exit")==0) break;
 		
-		/*OUTSIDE*/
+		*EXTERNAL*
 		
-		else if(strcmp(tokens[0],"ls") == 0) ls(n,tokens,bin);
+		if(strcmp(tokens[0],"ls") == 0) ls(n,tokens,bin);
 		
-		else printf("shell: Unknown command!\n");
+		else printf("shell: Unknown commfree(line);
+	free(tokens);and!\n");
 		
 		free(tokens);
-		tokens = NULL;
+		tokens = NULL; */
 	}
 	
 	
@@ -83,39 +89,5 @@ int main(){
 	return 0;
 }
 
-int tokenise(char *line,char ***tokens, int *n){
-	char *token;
-	int i=0;
-	
-	token = strtok(line," \t");
-	
-	*tokens = malloc( (i+1) * sizeof(**tokens));
-	
-	if(*tokens == NULL){ 
-		perror("memory");
-		*n = 0;
-		return -1;
-	}
-	
-	(*tokens)[i] = token;
-	
-	while(token != NULL){
-		char **tmp;
-		token=strtok(NULL," \t");
-		i++;
-		tmp = realloc(*tokens,(i+1) * sizeof(**tokens));
-		if(tmp == NULL){ 
-			perror("memory");
-			free(*tokens);
-			*tokens = NULL;
-			*n=0;
-			return -1;
-		}
-		*tokens = tmp;
-		(*tokens)[i] = token;
-	}
-	
-	*n = i;
-	return 0;
-}
+
 

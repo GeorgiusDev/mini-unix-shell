@@ -8,3 +8,11 @@ Here you can view patches, and feature history of this project
 # v0.2 New built-in commands
 - added mkdir, rmdir, touch, rm
 - optimised code
+
+# v0.3 Code architecture reconstruction
+- reconstructed the code architecture
+- better command handling
+- fixed small bugs regarding input EOF, and rm
+- only "exit" now exits the shell
+
+- *ADDED SUPPORT FOR PROGRAMS AND COMMANDS OUTSIDE THE PROJECT*

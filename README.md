@@ -11,7 +11,7 @@ Read version patches in patches.md file
 Built in:
 - pwd -> shows current directory
 - cd DIRECTORY -> change directory to destination
-- exit, break or close -> exit the shell
+- exit -> exit the shell
 - echo TEXT -> TEXT
 - mkdir NAME -> creates the directory with name "NAME"
 - rmdir NAME -> deletes the directory with name "NAME"
@@ -27,7 +27,7 @@ External:
   - ls -l
   - ls -l DIRECTORY
   
-#Requirements
+# Requirements
 - Linux / Unix-like operating system
 - GCC
 - Make

@@ -7,6 +7,7 @@
 
 void echo(int argc,char*argv[]);
 
+void handle_pwd(int argc, char *argv[]);
 char * pwd(char cwd[]);
 void cd(int argc, char *argv[]);
 
@@ -18,6 +19,7 @@ void rm(int argc, char*argv[]);
 
 /*	External */
 
-void ls(int argc, char*argv[],char bin[]);
+void external(int argc, char*argv[],char bin[]);
+void outside(int argc, char*argv[]);
 
 #endif

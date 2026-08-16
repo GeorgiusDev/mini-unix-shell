@@ -21,6 +21,11 @@ char *pwd(char cwd[]){
 	
 }
 
+void handle_pwd(int argc, char *argv[]){
+	char cwd[MAXIMUM];
+	printf("Current path: %s\n",pwd(cwd));
+}
+
 void cd(int argc, char *argv[]){
 	char cwd[MAXIMUM];
 
@@ -141,7 +146,6 @@ void rm(int argc, char* argv[]){
 	for(i=1;i<argc;i++){
 		if(unlink(argv[i])==-1){
 			perror("rm");
-			return;
 		}
 	}
 	
@@ -149,42 +153,19 @@ void rm(int argc, char* argv[]){
 
 /* EXTERNAL */
 
-void ls(int argc, char *argv[],char bin[]){
+void external(int argc, char *argv[],char bin[]){
 
-	pid_t pid = fork();
-	int status;
+	execv(bin,argv);
+	return;
 	
-	char path[MAXIMUM];
-	
-	strcpy(path,bin);
-	strcat(path,"/ls");
-	
-	if (pid<0){
-		perror("fork");
-		return;
-	}
-	else if(pid==0){
-		execv(path,argv);
-		perror("execv");
-		exit(1);
-	}
-	else{
-		if(waitpid(pid,&status,0)==-1){
-			perror("waitpid");
-			return;
-		}
-		if(WIFEXITED(status)){
-			return;
-		}
-		else if(WIFSIGNALED(status)){
-			printf("Process was killed!\n");
-			return;
-		}
-		else{
-			perror("status");
-		}
-	}
-	
+}
+
+/* Outside the project */
+
+void outside(int argc, char*argv[]){
+
+	execvp(argv[0],argv);
+	return;
 }
 
 
