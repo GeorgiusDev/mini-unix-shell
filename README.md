@@ -1,4 +1,4 @@
-# Mini Unix Shell clone v0.2
+# Mini Unix Shell clone v0.3
 A simple unix shell clone written in C, with basic commands!
 Read version patches in patches.md file
 
@@ -6,6 +6,7 @@ Read version patches in patches.md file
 - Command tokenization
 - Built in commands
 - External command execution using fork(), execv(), and waitpid()
+- Execution of programs, and commands outside this project!
 
 # Commands
 Built in:
