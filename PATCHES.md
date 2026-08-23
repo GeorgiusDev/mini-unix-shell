@@ -16,3 +16,7 @@ Here you can view patches, and feature history of this project
 - only "exit" now exits the shell
 
 - *ADDED SUPPORT FOR PROGRAMS AND COMMANDS OUTSIDE THE PROJECT*
+
+# v0.4 Pipeline support
+- *Added UNIX pipe support ('|')*
+- Optimised code

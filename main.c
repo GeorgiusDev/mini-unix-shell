@@ -53,36 +53,13 @@ int main(){
 		
 		cmdHandler(n,tokens,bin);
 		
-		/*OLD CODE, IN CASE OTHER FUNCTIONS EVER BREAK!*
+		if(tokens != NULL){
+			free(tokens);
+			tokens = NULL;
+		}
 		
-		if(strcmp(tokens[0],"cwd") == 0 || strcmp(tokens[0],"pwd") == 0) handle_pwd(n,tokens);
-		
-		else if(strcmp(tokens[0],"cd") == 0) cd(n,tokens);
-		
-		else if(strcmp(tokens[0],"echo") == 0) echo(n,tokens);
-		
-		else if(strcmp(tokens[0],"mkdir") == 0) mdir(n,tokens);
-		
-		else if(strcmp(tokens[0],"rmdir") == 0) rdir(n,tokens);
-		
-		else if(strcmp(tokens[0],"touch")==0) touch(n,tokens);
-		
-		else if (strcmp(tokens[0],"rm")==0) rm(n,tokens);
-		
-		else if(strcmp(tokens[0],"break") == 0 || strcmp(tokens[0],"close") == 0 || strcmp(tokens[0],"exit")==0) break;
-		
-		*EXTERNAL*
-		
-		if(strcmp(tokens[0],"ls") == 0) ls(n,tokens,bin);
-		
-		else printf("shell: Unknown commfree(line);
-	free(tokens);and!\n");
-		
-		free(tokens);
-		tokens = NULL; */
+
 	}
-	
-	
 	
 	free(line);
 	free(tokens);

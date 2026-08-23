@@ -8,8 +8,10 @@ typedef struct command{
 }command;
 
 void cmdHandler(int n, char ** tokens, char bin[]);
+void freeCommands(char****arrayOfCommands,int cmdCount);
 
-int isInternal(int n, char **tokens);
+int checkInternal(int n, char **tokens);
 int tokenise(char *line,char ***tokens, int *n);
+void handleInternalExternal(int n, char ** tokens,char bin[]);
 
 #endif

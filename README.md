@@ -1,4 +1,4 @@
-# Mini Unix Shell clone v0.3
+# Mini Unix Shell clone v0.4
 A simple unix shell clone written in C, with basic commands!
 Read version patches in patches.md file
 
@@ -7,6 +7,9 @@ Read version patches in patches.md file
 - Built in commands
 - External command execution using fork(), execv(), and waitpid()
 - Execution of programs, and commands outside this project!
+- Unix pipe support ('|'), including multiple chained pipes
+- File descriptor manipulation
+- Basic error handling for system calls
 
 # Commands
 Built in:
@@ -27,6 +30,11 @@ External:
   - ls -a DIRECTORY
   - ls -l
   - ls -l DIRECTORY
+  
+*PIPES*:
+- Commands can be connected using '|':
+- ls | cat
+- echo Hello | cat
   
 # Requirements
 - Linux / Unix-like operating system
