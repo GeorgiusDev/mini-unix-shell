@@ -12,6 +12,7 @@ void freeCommands(char****arrayOfCommands,int cmdCount);
 
 int checkInternal(int n, char **tokens);
 int tokenise(char *line,char ***tokens, int *n);
+void tokenFreer(char ***tokens,int *n);
 void handleInternalExternal(int n, char ** tokens,char bin[]);
 
 #endif

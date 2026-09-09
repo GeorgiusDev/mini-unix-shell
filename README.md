@@ -10,6 +10,7 @@ Read version patches in patches.md file
 - Unix pipe support ('|'), including multiple chained pipes
 - File descriptor manipulation
 - Basic error handling for system calls
+- Strings support (" ")
 
 # Commands
 Built in:
@@ -30,6 +31,8 @@ External:
   - ls -a DIRECTORY
   - ls -l
   - ls -l DIRECTORY
+  
+- cat
   
 *PIPES*:
 - Commands can be connected using '|':

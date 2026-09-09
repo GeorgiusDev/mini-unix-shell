@@ -20,3 +20,8 @@ Here you can view patches, and feature history of this project
 # v0.4 Pipeline support
 - *Added UNIX pipe support ('|')*
 - Optimised code
+
+# v0.5 Cat + Tokenisation rework
+- Added cat command
+- Complete tokenisation rework (old tokenisation code is commented in case you like it more)
+- Support for comments (" ")
