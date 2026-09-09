@@ -22,8 +22,8 @@ bin/cat: bin/cat.o
 	gcc -o bin/cat bin/cat.o
 	
 bin/cat.o: bin/cat.c
-	gcc .c bin/cat.c -o bin/cat.o
+	gcc -c bin/cat.c -o bin/cat.o
 	
 clean:
-	rm -f *.o shell bin/ls bin/ls.o bin/cat.c bin/cat.o
+	rm -f *.o shell bin/ls bin/ls.o bin/cat bin/cat.o
 	
