@@ -1,4 +1,4 @@
-# Mini Unix Shell clone v0.4
+# Mini Unix Shell clone v0.6
 A simple unix shell clone written in C, with basic commands!
 Read version patches in patches.md file
 
@@ -33,6 +33,12 @@ External:
   - ls -l DIRECTORY
   
 - cat
+  - cat
+  - cat FILE
+  
+- grep
+  - grep PATTERNS
+  - grep PATTERNS [FILE]
   
 *PIPES*:
 - Commands can be connected using '|':

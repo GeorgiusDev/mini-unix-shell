@@ -24,4 +24,7 @@ Here you can view patches, and feature history of this project
 # v0.5 Cat + Tokenisation rework
 - Added cat command
 - Complete tokenisation rework (old tokenisation code is commented in case you like it more)
-- Support for comments (" ")
+- Support for strings (" ")
+
+# v0.6
+- Added grep command

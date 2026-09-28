@@ -1,4 +1,4 @@
-all: shell bin/ls bin/cat
+all: shell bin/ls bin/cat bin/grep
 
 shell: main.o commands.o shell.o
 	gcc -o shell main.o commands.o shell.o
@@ -24,6 +24,12 @@ bin/cat: bin/cat.o
 bin/cat.o: bin/cat.c
 	gcc -c bin/cat.c -o bin/cat.o
 	
+bin/grep: bin/grep.o
+	gcc -o bin/grep bin/grep.o
+
+bin/grep.o: bin/grep.c
+	gcc -c bin/grep.c -o bin/grep.o
+	
 clean:
-	rm -f *.o shell bin/ls bin/ls.o bin/cat bin/cat.o
+	rm -f *.o shell bin/ls bin/ls.o bin/cat bin/cat.o bin/grep bin/grep.o
 	
