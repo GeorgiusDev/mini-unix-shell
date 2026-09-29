@@ -11,6 +11,7 @@ int main(int argc, char* argv[]){
 
 	char buffer[128];
 	
+	/* Open the specified file and redirect stdin to it */
 	if(argc==2){
 		fd = open(argv[1],O_RDONLY);
 		
@@ -25,11 +26,16 @@ int main(int argc, char* argv[]){
 		}
 		close(fd);
 	}
+	/* Edge case scenario handler */
 	else if (argc>2){
 		printf("For now, shell supports only 'CAT FILENAME'!\n");
 		exit(0);
 	
 	}
+	
+	/* Read input in chunks and write each chunk to stdout.
+	   This also allows cat to work with input from a pipe.
+	*/
 	
 	while((bytes = read(0,buffer,sizeof(buffer)))>0){
 		if(write(1,buffer,bytes) == -1){

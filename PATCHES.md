@@ -28,3 +28,8 @@ Here you can view patches, and feature history of this project
 
 # v0.6
 - Added grep command
+
+# v0.7
+- Added free() at the end of grep.c
+- Removed useless code in grep.c
+- Commented grep.c, and cat.c

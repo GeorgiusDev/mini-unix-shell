@@ -1,4 +1,4 @@
-# Mini Unix Shell clone v0.6
+# Mini Unix Shell clone v0.7
 A simple unix shell clone written in C, with basic commands!
 Read version patches in patches.md file
 

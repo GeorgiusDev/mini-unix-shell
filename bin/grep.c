@@ -14,6 +14,8 @@ int main(int argc, char *argv[]){
 	int strsize;
 	char *word;
 	
+	
+	/* Open the specified file and redirect stdin to it */
 	if(argc == 3){
 		fd = open(argv[2],O_RDONLY);
 		
@@ -29,6 +31,7 @@ int main(int argc, char *argv[]){
 		close(fd);		
 	}
 	
+	/* Edge-case scenarios handler */
 	
 	else if (argc == 1 || argc > 3){
 		printf("Usage: grep PATTERNS [file] or cmd1 | grep PATTERNS\n");
@@ -42,18 +45,15 @@ int main(int argc, char *argv[]){
 	}
 	
 	strsize = strlen(argv[1]);
-	word = malloc((strsize+1) * sizeof(*word));
+	word = malloc((strsize+1) * sizeof(*word)); /* Allocate memory for PATTERN + '\0' */
 	
 	if (word == NULL){
 		perror("malloc");
 		exit(1);
 	}
 		
-	if(strcpy(word,argv[1])==NULL){
-		free(word);
-		perror("strcpy");
-		exit(1);
-	}
+	strcpy(word,argv[1]); 
+
 	
 	/* GREP HANDLER */
 	
@@ -63,15 +63,21 @@ int main(int argc, char *argv[]){
 	char buffer[MAXIMUM];
 	char line_buffer[MAXIMUM + 1];
 	
-	while((bytes = read(0,buffer,MAXIMUM))>0){
+	/* read() may return multiple lines or split a line between reads
+	   therefore, bytes are accumulated in line_buffer untill '\n' is found.
+	*/
+	
+	while((bytes = read(0,buffer,MAXIMUM))>0){ 
 		
 		for(i=0; i<bytes; i++){
 			line_buffer[line_pos] = buffer[i];
 			line_pos++;
 			
+			/* A complete line has been collected */
 			if(buffer[i] == '\n'){
 				line_buffer[line_pos] = '\0';
 				
+				/* Check if this line has the pattern */
 				if(strstr(line_buffer,word)!=NULL){
 				
 					if(argc == 3) {
@@ -85,6 +91,7 @@ int main(int argc, char *argv[]){
 					}
 				}
 				
+				/* Move to the next line */
 				line++;
 				line_pos = 0;
 				
@@ -94,5 +101,7 @@ int main(int argc, char *argv[]){
 		
 	
 	}
+	
+	free(word);
 	
 }
