@@ -1,4 +1,4 @@
-# Mini Unix Shell clone v0.7
+# Mini Unix Shell clone v0.8
 A simple unix shell clone written in C, with basic commands!
 Read version patches in patches.md file
 
@@ -11,6 +11,7 @@ Read version patches in patches.md file
 - File descriptor manipulation
 - Basic error handling for system calls
 - Strings support (" ")
+- nscmd command which searches the system for the specified command instead of using a builtin command or command from this project's /bin directory.
 
 # Commands
 Built in:
@@ -22,6 +23,7 @@ Built in:
 - rmdir NAME -> deletes the directory with name "NAME"
 - touch FILE -> creates the file with name "FILE"
 - rm FILE -> deletes the file with name "FILE"
+- nscmd [COMMAND] [ARGUMENTS] -> searches the system for the specified command instead of using a builtin command or command from this project's /bin directory.
 
 External:
 - ls:

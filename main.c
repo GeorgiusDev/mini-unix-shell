@@ -10,7 +10,7 @@
 int tokenise(char *line, char***tokens,int *n);
 
 int main(){
-	
+
 	char *line=NULL;
 	size_t len = 0;
 	int n;
@@ -35,10 +35,12 @@ int main(){
 			return 1;
 		}
 		line[strcspn(line,"\n")] = '\0';
+
 		
 		if(tokenise(line,&tokens,&n) == -1){
 			printf("Tokenisation failed!\n");
 			free(tokens);
+			tokens = NULL;
 			continue;
 		}
 		
@@ -48,7 +50,7 @@ int main(){
 			continue;
 		
 		}
-		
+
 		if(strcmp(tokens[0],"exit")==0) break;
 		
 		cmdHandler(n,tokens,bin);
@@ -60,11 +62,13 @@ int main(){
 		
 
 	}
-	
+
 	free(line);
 	free(tokens);
 	return 0;
 }
+
+
 
 
 

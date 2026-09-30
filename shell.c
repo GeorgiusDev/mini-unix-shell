@@ -305,7 +305,8 @@ int checkInternal(int n,char **tokens){
 	{"rmdir",rdir},
 	
 	{"touch",touch},
-	{"rm",rm}
+	{"rm",rm},
+	{"nscmd",nscmd}
 
 	};
 	

@@ -33,3 +33,7 @@ Here you can view patches, and feature history of this project
 - Added free() at the end of grep.c
 - Removed useless code in grep.c
 - Commented grep.c, and cat.c
+
+# v0.8
+- Added nscmd command
+- nscmd searches the system for the specified command instead of using a builtin command or command from this project's /bin directory.

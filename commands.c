@@ -151,6 +151,38 @@ void rm(int argc, char* argv[]){
 	
 }
 
+/* nscmd searches the system for the specified command instead of using a builtin command or command from this project's /bin directory. */
+
+void nscmd(int argc, char *argv[]){
+	int new_argc = argc-1,i;
+	char **new_argv;
+
+	if(new_argc<1){
+		printf("nscmd: enter a command\n");
+		return;
+	}
+
+	new_argv=malloc((new_argc + 1)*sizeof(*new_argv));
+
+	if(new_argv == NULL){
+		perror("malloc");
+		return;
+	}
+
+	for(i=0;i<new_argc;i++){
+		new_argv[i] = argv[i+1];
+	}
+
+	new_argv[new_argc] = NULL;
+
+	outside(new_argc,new_argv);
+
+	free(new_argv);
+	new_argv=NULL;
+	return;
+
+}
+
 /* EXTERNAL */
 
 void external(int argc, char *argv[],char bin[]){
