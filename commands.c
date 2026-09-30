@@ -175,12 +175,44 @@ void nscmd(int argc, char *argv[]){
 
 	new_argv[new_argc] = NULL;
 
-	outside(new_argc,new_argv);
+	pid_t pid = fork();
+	int status;
 
-	free(new_argv);
-	new_argv=NULL;
-	return;
+	if(pid<0){
+		perror("fork");
+		free(new_argv);
+		return;
+	}
+	else if(pid == 0){
 
+		outside(new_argc,new_argv);
+		exit(1);
+	}
+	else{
+		if(waitpid(pid,&status,0)==-1){
+			perror("waitpid");
+			free(new_argv);
+
+			return;
+		}
+		if(WIFEXITED(status)){
+			free(new_argv);
+
+			return;
+		}
+		else if(WIFSIGNALED(status)){
+			printf("Process was killed!\n");
+			free(new_argv);
+
+			return;
+		}
+		else{
+			perror("status");
+			free(new_argv);
+
+		}
+	}
+	
 }
 
 /* EXTERNAL */

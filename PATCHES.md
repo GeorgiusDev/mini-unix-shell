@@ -36,4 +36,8 @@ Here you can view patches, and feature history of this project
 
 # v0.8
 - Added nscmd command
-- nscmd searches the system for the specified command instead of using a builtin command or command from this project's /bin directory.
+- Nscmd searches the system for the specified command instead of using a builtin command or command from this project's /bin directory.
+
+# v0.9
+- Fixed bug where command exits after nscmd command
+- Now nscmd command should live in its own process
