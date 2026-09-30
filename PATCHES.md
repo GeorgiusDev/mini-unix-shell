@@ -1,5 +1,5 @@
-# All updates, and their history
-Here you can view patches, and feature history of this project
+# All updates, and their history before release
+Here you can view patches, and feature history of this project before release
 
 # v0.1 Initial version
 - Created simple shell with basic built-in commands like: pwd, cd, exit, echo
@@ -26,18 +26,18 @@ Here you can view patches, and feature history of this project
 - Complete tokenisation rework (old tokenisation code is commented in case you like it more)
 - Support for strings (" ")
 
-# v0.6
+# v0.6 grep command 
 - Added grep command
 
-# v0.7
+# v0.7 code cleanup
 - Added free() at the end of grep.c
 - Removed useless code in grep.c
 - Commented grep.c, and cat.c
 
-# v0.8
+# v0.8 nscmd command
 - Added nscmd command
 - Nscmd searches the system for the specified command instead of using a builtin command or command from this project's /bin directory.
 
-# v0.9
+# v0.9 Final pre-release
 - Fixed bug where command exits after nscmd command
 - Now nscmd command should live in its own process
