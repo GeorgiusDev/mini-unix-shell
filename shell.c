@@ -6,6 +6,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <pwd.h>
 
 #include "commands.h"
 #include "shell.h"
@@ -576,6 +577,26 @@ void handleInternalExternal(int n, char ** tokens,char bin[]){
 
 }
 
+void getInfo(char ** username, char * hostname){
 
+	/* get hostname */
+
+    if(gethostname(hostname,256)==-1){
+        perror("hostname");
+        exit(1);
+    }
+
+	/* get username */
+
+	uid_t uid = getuid();
+
+    struct passwd *pw = getpwuid(uid);
+
+    if(pw == NULL){
+        perror("whoami");
+        exit(1);
+   }
+   *username = pw->pw_name;
+}
 
 

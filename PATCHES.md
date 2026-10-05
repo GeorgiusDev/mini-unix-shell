@@ -11,3 +11,6 @@ Here you can view patches, and feature history of this project after release
 - Added clear command
 - Added whoami command
 - Added hostname command
+
+# v1.2 added username and hostname to shell prompt
+- instead of shell prompt being just "$: ", now it's "username@hostname$: "

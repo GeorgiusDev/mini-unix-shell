@@ -6,7 +6,6 @@
 #include "commands.h"
 #include "shell.h"
 
-
 int tokenise(char *line, char***tokens,int *n);
 
 int main(){
@@ -19,6 +18,13 @@ int main(){
 	/* path variable for bin folder */
 
 	char bin[MAXIMUM];
+
+	/* get hostname, and username */
+
+	char hostname[256];
+	char *username;
+
+	getInfo(&username, hostname);
 	
 	/* get this project's path and then add '/bin' */
 
@@ -32,7 +38,7 @@ int main(){
 	char **tokens=NULL;
 	
 	while(1){
-		printf("$: ");
+		printf("%s@%s$: ",username,hostname);
 		if(getline(&line, &len, stdin) == -1){
 			if(feof(stdin)) break;
 			
