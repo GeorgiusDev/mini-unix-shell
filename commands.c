@@ -218,6 +218,14 @@ void nscmd(int argc, char *argv[]){
 	
 }
 
+/* This is very very basic implementation of "clear" command */
+void clear(int argc, char*argv[]){
+	
+	if(write(STDOUT_FILENO,"\033[1;1H\033[2J",10)==-1){
+		perror("clear");
+	}
+}
+
 /* EXTERNAL */
 
 void external(int argc, char *argv[],char bin[]){

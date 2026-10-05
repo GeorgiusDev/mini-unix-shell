@@ -6,3 +6,8 @@ Here you can view patches, and feature history of this project after release
 - Built-in commands like cd, pwd, exit, echo, rm, rmdir, touch, mkdir, nscmd
 - ls, cat, grep, and also ability to use external commands
 - pipeline support
+
+# v1.1 New commands
+- Added clear command
+- Added whoami command
+- Added hostname command

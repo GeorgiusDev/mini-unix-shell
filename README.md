@@ -1,4 +1,4 @@
-# Mini Unix Shell clone v1.0
+# Mini Unix Shell clone v1.1
 A simple unix shell clone written in C, with basic commands!
 Read version patches in patches.md file
 
@@ -24,6 +24,7 @@ Built in:
 - touch FILE -> creates the file with name "FILE"
 - rm FILE -> deletes the file with name "FILE"
 - nscmd [COMMAND] [ARGUMENTS] -> searches the system for the specified command instead of using a builtin command or command from this project's /bin directory.
+- clear -> clears the terminal (very basic implementation was used)
 
 External:
 - ls:
@@ -41,6 +42,9 @@ External:
 - grep
   - grep PATTERNS
   - grep PATTERNS [FILE]
+
+- whoami
+- hostname
   
 *PIPES*:
 - Commands can be connected using '|':
