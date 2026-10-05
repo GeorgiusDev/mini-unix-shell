@@ -11,8 +11,6 @@
 #include "shell.h"
 
 void cmdHandler(int n,char **tokens, char bin[]){
-
-	/*Goodluck decoding this function, soldier!*/
 	
 	int i,j;
 	
@@ -488,7 +486,7 @@ void tokenFreer(char ***tokens,int *n){
 	*tokens = NULL;
 }
 
-/* OLD TOKENISER IN CASE SOMETHING BREAKS
+/* OLD TOKENISER IF YOU PREFER SIMPLIFIED VERSION
 int tokenise(char *line,char ***tokens, int *n){
 	char *token;
 	int i=0;
@@ -528,8 +526,10 @@ int tokenise(char *line,char ***tokens, int *n){
 */
 
 void handleInternalExternal(int n, char ** tokens,char bin[]){
+	/* checks if the provided command is built-in or not */
 	if(checkInternal(n,tokens)==1){
 		
+		/* create new process */
 		pid_t pid = fork();
 		int status;
 		
@@ -546,6 +546,8 @@ void handleInternalExternal(int n, char ** tokens,char bin[]){
 		else if(pid==0){
 		
 			external(n,tokens,path);
+
+			/* if command is not in this program's /bin file, then it searches your device */
 
 			outside(n,tokens);
 			

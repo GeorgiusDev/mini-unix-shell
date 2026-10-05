@@ -11,6 +11,8 @@
 
 char *pwd(char cwd[]){
 	
+	/* this command gets current path, and then returns it as a string */
+
 	if(getcwd(cwd,MAXIMUM)!=NULL){
 		return cwd;
 	}
@@ -22,6 +24,7 @@ char *pwd(char cwd[]){
 }
 
 void handle_pwd(int argc, char *argv[]){
+	/* get current path */
 	char cwd[MAXIMUM];
 	printf("Current path: %s\n",pwd(cwd));
 }

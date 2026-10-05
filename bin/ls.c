@@ -4,6 +4,7 @@
 #include <dirent.h>
 #include <sys/stat.h>
 #include <time.h>
+#include <unistd.h>
 
 #define MAXIMUM 1024
 
@@ -21,6 +22,7 @@ int main(int argc,char *argv[]){
 			perror("ls");
 			return 1;
 		}
+
 		operate(dir);
 	}
 	
@@ -85,11 +87,11 @@ void operate(DIR *dir){
 		if(entry->d_name[0] == '.'){
 			continue;
 		}
-		
-		printf("%s ",entry->d_name);
+		if(isatty(STDOUT_FILENO)) printf("%s ",entry->d_name);
+		else printf("%s\n",entry->d_name);
 	}
-	
-	printf("\n");
+
+	if(isatty(STDOUT_FILENO)) printf("\n");
 	
 }
 
@@ -103,9 +105,6 @@ void options(DIR *dir,char option[],char path[]){
 		char type[20];
 		
 		char filepath[MAXIMUM];
-		
-		
-		
 		
 		printf("%-20s %-10s %10s %s\n\n","Name:","Type:","Size:","Date modified:");
 		
@@ -145,8 +144,11 @@ void options(DIR *dir,char option[],char path[]){
 	else if(strcmp(option,"-a") == 0){
 		printf("Files: ");
 		while((entry = readdir(dir)) != NULL)
-			printf("%s ",entry->d_name);
-		printf("\n");
+
+			if(isatty(STDOUT_FILENO)) printf("%s ",entry->d_name);
+			else printf("%s\n",entry->d_name);
+			
+		if(isatty(STDOUT_FILENO)) printf("\n");
 	}
 	else{
 		printf("ls: unknown command!\n");

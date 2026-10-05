@@ -11,12 +11,17 @@ int tokenise(char *line, char***tokens,int *n);
 
 int main(){
 
+	/* variables for tokenisation */
 	char *line=NULL;
 	size_t len = 0;
 	int n;
 	
+	/* path variable for bin folder */
+
 	char bin[MAXIMUM];
 	
+	/* get this project's path and then add '/bin' */
+
 	if(getcwd(bin,MAXIMUM)==NULL){
 		perror("Directory");
 		exit(1);
@@ -36,6 +41,7 @@ int main(){
 		}
 		line[strcspn(line,"\n")] = '\0';
 
+		/* break string into tokens */
 		
 		if(tokenise(line,&tokens,&n) == -1){
 			printf("Tokenisation failed!\n");
@@ -44,6 +50,8 @@ int main(){
 			continue;
 		}
 		
+		/* if it is empty line */
+
 		if(n == 0) {
 			free(tokens);
 			tokens = NULL;
@@ -51,10 +59,16 @@ int main(){
 		
 		}
 
+		/* exit handler */
+
 		if(strcmp(tokens[0],"exit")==0) break;
 		
+		/* start the command */
+
 		cmdHandler(n,tokens,bin);
 		
+		/* free the tokens to prevent leaks */
+
 		if(tokens != NULL){
 			free(tokens);
 			tokens = NULL;
@@ -63,6 +77,8 @@ int main(){
 
 	}
 
+	/* memory cleanup */
+	
 	free(line);
 	free(tokens);
 	return 0;
