@@ -5,6 +5,7 @@
 
 #include "commands.h"
 #include "shell.h"
+#include "colors.h"
 
 int tokenise(char *line, char***tokens,int *n);
 
@@ -38,7 +39,7 @@ int main(){
 	char **tokens=NULL;
 	
 	while(1){
-		printf("%s@%s$: ",username,hostname);
+		printf(COLOR_GREEN "%s@%s$: " COLOR_RESET,username,hostname);
 		if(getline(&line, &len, stdin) == -1){
 			if(feof(stdin)) break;
 			

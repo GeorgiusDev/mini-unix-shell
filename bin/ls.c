@@ -8,6 +8,10 @@
 
 #define MAXIMUM 1024
 
+#define COLOR_RESET "\x1b[0m"
+#define COLOR_BLUE "\x1b[34m"
+
+void colorful_printer(struct dirent * entry);
 void operate(DIR *dir);
 void options(DIR *dir,char option[],char path[]);
 
@@ -77,6 +81,11 @@ int main(int argc,char *argv[]){
 	return 0;
 }
 
+void colorful_printer(struct dirent * entry){
+	if(entry->d_type == DT_DIR) printf(COLOR_BLUE "%s" COLOR_RESET,entry->d_name);
+	else printf("%s",entry->d_name);
+}
+
 void operate(DIR *dir){
 
 	struct dirent *entry;
@@ -87,8 +96,16 @@ void operate(DIR *dir){
 		if(entry->d_name[0] == '.'){
 			continue;
 		}
-		if(isatty(STDOUT_FILENO)) printf("%s ",entry->d_name);
-		else printf("%s\n",entry->d_name);
+
+		if(isatty(STDOUT_FILENO)) {
+			colorful_printer(entry);
+			printf(" ");
+		}
+
+		else {
+			colorful_printer(entry);
+			printf("\n");
+		}
 	}
 
 	if(isatty(STDOUT_FILENO)) printf("\n");
@@ -145,8 +162,15 @@ void options(DIR *dir,char option[],char path[]){
 		printf("Files: ");
 		while((entry = readdir(dir)) != NULL)
 
-			if(isatty(STDOUT_FILENO)) printf("%s ",entry->d_name);
-			else printf("%s\n",entry->d_name);
+			if(isatty(STDOUT_FILENO)){
+				colorful_printer(entry);
+				printf(" ");	
+			}
+
+			else {
+				colorful_printer(entry);
+				printf("\n");
+			}
 			
 		if(isatty(STDOUT_FILENO)) printf("\n");
 	}

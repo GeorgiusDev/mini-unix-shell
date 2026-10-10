@@ -1,4 +1,4 @@
-# Mini Unix Shell clone v1.2
+# Mini Unix Shell clone v1.3
 A simple unix shell clone written in C, with basic commands!
 Read version patches in patches.md file
 
@@ -12,6 +12,7 @@ Read version patches in patches.md file
 - Basic error handling for system calls
 - Strings support (" ")
 - nscmd command which searches the system for the specified command instead of using a builtin command or command from this project's /bin directory.
+- COLORS!
 
 # Commands
 Built in:

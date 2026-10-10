@@ -14,3 +14,7 @@ Here you can view patches, and feature history of this project after release
 
 # v1.2 added username and hostname to shell prompt
 - instead of shell prompt being just "$: ", now it's "username@hostname$: "
+
+# v1.3 COLORS!
+- finally, this shell is no longer souless black and white terminal
+- I didn't know where to put colors, so you can always just include "colors.h" and put them wherever you like, it's pretty easy!
