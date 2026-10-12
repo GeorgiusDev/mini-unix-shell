@@ -124,7 +124,6 @@ void cmdHandler(int n,char **tokens, char bin[]){
 			
 			words=wordsMem;
 			
-			
 			cmdCount++;
 			arrayOfCommands[cmdCount-1] = NULL;
 		}

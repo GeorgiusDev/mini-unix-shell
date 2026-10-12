@@ -25,3 +25,6 @@ Here you can view patches, and feature history of this project after release
 
 - 1.4.1
     - cleaned up main.c
+
+- 1.4.2
+    - added "history" command, which prints the list of all commands ever used on standard output

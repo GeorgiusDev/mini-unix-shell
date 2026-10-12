@@ -97,9 +97,11 @@ int main(){
 		if(*(history+historyCounter) == NULL){
 			perror("strdup");
 
-			free(tokens);
-			tokens=NULL;
-			
+			if(tokens != NULL){
+				free(tokens);
+				tokens=NULL;
+			}
+
 			continue;
 		}
 
@@ -108,10 +110,14 @@ int main(){
 		/* exit handler */
 
 		if(strcmp(tokens[0],"exit")==0) break;
-		
-		/* start the command */
 
-		cmdHandler(n,tokens,bin);
+		else if(strcmp(tokens[0],"history")==0){
+			printHistory(history,historyCounter,historypath);
+		}
+		else{
+			/* start the command */
+			cmdHandler(n,tokens,bin);
+		}
 		
 		/* free the tokens to prevent leaks */
 

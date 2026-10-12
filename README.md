@@ -1,4 +1,4 @@
-# Mini Unix Shell clone v1.4.1
+# Mini Unix Shell clone v1.4.2
 A simple unix shell clone written in C, with basic commands!
 Read version patches in patches.md file
 
@@ -27,6 +27,7 @@ Built in:
 - rm FILE -> deletes the file with name "FILE"
 - nscmd [COMMAND] [ARGUMENTS] -> searches the system for the specified command instead of using a builtin command or command from this project's /bin directory.
 - clear -> clears the terminal (very basic implementation was used)
+- history -> prints the history of commands on standard output
 
 External:
 - ls:

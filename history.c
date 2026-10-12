@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "history.h"
+
 int emptyHistoryBuffer(char *history[100],int n,char *bin){
 	int i;
 	
@@ -38,6 +40,29 @@ int emptyHistoryBuffer(char *history[100],int n,char *bin){
 	return 0;
 }
 
+void printHistory(char **history, int n, char *historyPath){
+	int i;
+	char buffer[255];
 
+	FILE *f = fopen(historyPath, "r");
+	if (f == NULL){
+		perror("fopen");
+		return;
+	}
 
-#include "history.h"
+	while(fgets(buffer,255,f) != NULL){
+		printf("%s",buffer);
+	}
+
+	if(fclose(f)==EOF){
+		perror("fclose");
+		return;
+	}
+
+	if(n>0){
+		for(i=0; i<n; i++){
+			printf("%s\n",*(history+i));
+		}
+	}
+
+}
