@@ -18,3 +18,7 @@ Here you can view patches, and feature history of this project after release
 # v1.3 COLORS!
 - finally, this shell is no longer souless black and white terminal
 - I didn't know where to put colors, so you can always just include "colors.h" and put them wherever you like, it's pretty easy!
+
+# v1.4.0 HISTORY!
+- for now added history!
+- it is saved in buffer variable, untill 100 commands are typed in one session, or "exit" is used. Then it is saved in shell/bin/history.txt file!

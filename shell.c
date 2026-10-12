@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
@@ -11,10 +12,9 @@
 #include "commands.h"
 #include "shell.h"
 
+/* this function's main goal is to handle pipes */
 void cmdHandler(int n,char **tokens, char bin[]){
-	
 	int i,j;
-	
 	int isPiped = 0;
 	
 	/* check if there is "|", if there isn't then skip that chunk of a code */
