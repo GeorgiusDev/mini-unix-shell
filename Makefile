@@ -1,7 +1,7 @@
 all: shell bin/ls bin/cat bin/grep bin/whoami bin/hostname
 
-shell: main.o commands.o shell.o
-	gcc -o shell main.o commands.o shell.o
+shell: main.o commands.o shell.o history.o
+	gcc -o shell main.o commands.o shell.o history.o
 	
 main.o: main.c
 	gcc -c main.c
@@ -11,6 +11,9 @@ commands.o: commands.c commands.h
 	
 shell.o: shell.c shell.h
 	gcc -c shell.c
+
+history.o: history.c history.h
+	gcc -c history.c
 	
 bin/ls: bin/ls.o
 	gcc -o bin/ls bin/ls.o

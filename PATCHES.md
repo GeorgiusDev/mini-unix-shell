@@ -22,3 +22,6 @@ Here you can view patches, and feature history of this project after release
 # v1.4.0 HISTORY!
 - for now added history!
 - it is saved in buffer variable, untill 100 commands are typed in one session, or "exit" is used. Then it is saved in shell/bin/history.txt file!
+
+- 1.4.1
+    - cleaned up main.c
