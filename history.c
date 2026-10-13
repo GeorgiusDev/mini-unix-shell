@@ -41,8 +41,9 @@ int emptyHistoryBuffer(char *history[100],int n,char *bin){
 }
 
 void printHistory(char **history, int n, char *historyPath){
-	int i;
+	int i,counter;
 	char buffer[255];
+	counter = 0;
 
 	FILE *f = fopen(historyPath, "r");
 	if (f == NULL){
@@ -51,7 +52,8 @@ void printHistory(char **history, int n, char *historyPath){
 	}
 
 	while(fgets(buffer,255,f) != NULL){
-		printf("%s",buffer);
+		counter++;
+		printf("%d %s",counter,buffer);
 	}
 
 	if(fclose(f)==EOF){
@@ -61,7 +63,8 @@ void printHistory(char **history, int n, char *historyPath){
 
 	if(n>0){
 		for(i=0; i<n; i++){
-			printf("%s\n",*(history+i));
+			counter++;
+			printf("%d %s\n",counter,*(history+i));
 		}
 	}
 

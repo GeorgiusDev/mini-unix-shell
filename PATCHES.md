@@ -28,3 +28,6 @@ Here you can view patches, and feature history of this project after release
 
 - 1.4.2
     - added "history" command, which prints the list of all commands ever used on standard output
+
+- 1.4.3
+    - added numbered entries to command history
